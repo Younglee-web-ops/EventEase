@@ -1,0 +1,36 @@
+@page "/eventcard"
+
+<h3>@Title</h3>
+<p>날짜: @Date</p>
+<p>장소: @Location</p>
+<input @bind="Title" @bind:event="oninput" />
+
+@if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <p style="color:red">@errorMessage</p>
+}
+
+@code {
+    private string title = "샘플 이벤트";
+    private string errorMessage = "";
+
+    public string Title
+    {
+        get => title;
+        set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                errorMessage = "이벤트 이름은 비워둘 수 없습니다.";
+            }
+            else
+            {
+                errorMessage = "";
+                title = value;
+            }
+        }
+    }
+
+    public string Date { get; set; } = "2026-10-01";
+    public string Location { get; set; } = "서울";
+}

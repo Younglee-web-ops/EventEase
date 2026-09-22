@@ -33,6 +33,14 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/user/LibApp2/EvenEase/EventCard.razor]
+build_metadata.AdditionalFiles.TargetPath = RXZlbnRDYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/user/LibApp2/EvenEase/NotFound.razor]
+build_metadata.AdditionalFiles.TargetPath = Tm90Rm91bmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/user/LibApp2/EvenEase/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
