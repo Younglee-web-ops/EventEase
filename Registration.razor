@@ -1,0 +1,62 @@
+@page "/registration"
+
+<h3>이벤트 등록</h3>
+
+<div>
+    <label>이름:</label>
+    <input @bind="Name" @bind:event="oninput" />
+</div>
+
+<div>
+    <label>이메일:</label>
+    <input @bind="Email" @bind:event="oninput" />
+</div>
+
+@if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <p style="color:red">@errorMessage</p>
+}
+
+<button @onclick="Register">등록하기</button>
+
+@if (isRegistered)
+{
+    <p style="color:green">@Name 님, 등록이 완료되었습니다!</p>
+}
+
+@code {
+    private string name = "";
+    private string email = "";
+    private string errorMessage = "";
+    private bool isRegistered = false;
+
+    public string Name
+    {
+        get => name;
+        set { name = value; }
+    }
+
+    public string Email
+    {
+        get => email;
+        set { email = value; }
+    }
+
+    private void Register()
+    {
+        if (string.IsNullOrWhiteSpace(Name))
+        {
+            errorMessage = "이름을 입력해주세요.";
+            isRegistered = false;
+            return;
+        }
+        if (string.IsNullOrWhiteSpace(Email) || !Email.Contains("@"))
+        {
+            errorMessage = "올바른 이메일 주소를 입력해주세요.";
+            isRegistered = false;
+            return;
+        }
+        errorMessage = "";
+        isRegistered = true;
+    }
+}

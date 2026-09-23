@@ -1,0 +1,30 @@
+@page "/attendance"
+
+<h3>참석자 추적기</h3>
+
+<div>
+    <input @bind="newAttendee" @bind:event="oninput" placeholder="참석자 이름 입력" />
+    <button @onclick="AddAttendee">참석 등록</button>
+</div>
+
+<h4>참석자 목록 (@attendees.Count 명)</h4>
+<ul>
+    @foreach (var person in attendees)
+    {
+        <li>@person</li>
+    }
+</ul>
+
+@code {
+    private string newAttendee = "";
+    private List<string> attendees = new List<string>();
+
+    private void AddAttendee()
+    {
+        if (!string.IsNullOrWhiteSpace(newAttendee))
+        {
+            attendees.Add(newAttendee);
+            newAttendee = "";
+        }
+    }
+}
